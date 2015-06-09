@@ -3,7 +3,7 @@
 
     <style name="AppTheme" parent="AppTheme.Base"/>
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat">
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
         <item name="android:colorPrimary"
             tools:ignore="NewApi">@color/colorPrimary</item>
         <item name="android:colorPrimaryDark"
