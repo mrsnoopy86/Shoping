@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Shoping</string>
+    <string name="app_name">Shoping Helper</string>
+    <string name="sort_menu_item">Sort</string>
+    <string name="edit_item_menu">Edit</string>
 </resources>
