@@ -2,4 +2,8 @@
     <string name="app_name">Shoping Helper</string>
     <string name="sort_menu_item">Sort</string>
     <string name="edit_item_menu">Edit</string>
+    <string name="spisok_tab">Список</string>
+    <string name="spisok_tab2">Создать</string>
+    <string name="spisok_tab3">Адреса</string>
+    <string name="spisok_tab4">Карта</string>
 </resources>
