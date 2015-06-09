@@ -5,6 +5,8 @@
     <color name="mainBackground">#e6e5e5</color>
     <color name="colorVagno">#ef9a9a</color>
     <color name="colorToDay">#00e676</color>
+    <color name="colorToDayText">#2e7d32</color>
     <color name="colorRemember">#ea80fc</color>
-    
+    <color name="colorRememberText">#7f0284</color>
+
 </resources>
