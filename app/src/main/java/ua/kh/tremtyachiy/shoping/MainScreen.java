@@ -1,6 +1,5 @@
 package ua.kh.tremtyachiy.shoping;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +15,7 @@ import com.mikepenz.materialdrawer.accountswitcher.AccountHeaderBuilder;
 /**
  * Created by User on 09.06.2015.
  */
+
 public class MainScreen extends AppCompatActivity {
     private Toolbar toolbar;
     private Drawer drawerMenu;
