@@ -11,13 +11,13 @@ public class Product {
     private String title;
     private String about;
     private String type;
-    private Date dateStart;
-    private Date dateEnd;
+    private CharSequence dateStart;
+    private CharSequence dateEnd;
     private int visibilityOfRemember = View.VISIBLE;
     private int visibilityOfToDay = View.VISIBLE;
     private int visibilityOfImportant = View.VISIBLE;
 
-    public Product(String title, String about, String type, Date dateStart, Date dateEnd) {
+    public Product(String title, String about, String type, CharSequence dateStart, CharSequence dateEnd) {
         this.title = title;
         this.about = about;
         this.type = type;
@@ -25,7 +25,7 @@ public class Product {
         this.dateEnd = dateEnd;
     }
 
-    public Product(String title, String about, String type, Date dateStart, Date dateEnd, int visibilityOfRemember, int visibilityOfToDay, int visibilityOfImportant) {
+    public Product(String title, String about, String type, CharSequence dateStart, CharSequence dateEnd, int visibilityOfRemember, int visibilityOfToDay, int visibilityOfImportant) {
         this.title = title;
         this.about = about;
         this.type = type;
@@ -48,11 +48,11 @@ public class Product {
         return type;
     }
 
-    public Date getDateStart() {
+    public CharSequence getDateStart() {
         return dateStart;
     }
 
-    public Date getDateEnd() {
+    public CharSequence getDateEnd() {
         return dateEnd;
     }
 

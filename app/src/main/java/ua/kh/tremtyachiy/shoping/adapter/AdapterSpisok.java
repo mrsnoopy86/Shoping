@@ -23,14 +23,14 @@ import ua.kh.tremtyachiy.shoping.util.ProductContent;
 
 public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     private Context context;
-    ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<Product> products = new ArrayList<>();
     LayoutInflater inflater;
 
     public AdapterSpisok(@NonNull Context context, ArrayList<Product> list) {
         super(context, R.layout.adapter, R.layout.adapter_title, R.layout.adapter_content);
         this.context = context;
         products = list;
-
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         for (int i = 0; i < products.size(); i++){
             add(i);
         }
@@ -52,14 +52,15 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     }
 
 
-    @SuppressWarnings("ResourceType")
     @NonNull
     @Override
     public View getTitleView(int i, View view, @NonNull ViewGroup viewGroup) {
         View viewTitle = view;
-        ViewHolderTitle holder = new ViewHolderTitle();
+        ViewHolderTitle holder;
+
         if(viewTitle == null){
-            viewTitle = inflater.inflate(R.layout.adapter_title, viewGroup, false);
+            holder = new ViewHolderTitle();
+            viewTitle = inflater.inflate(R.layout.adapter, viewGroup, false);
             holder.tvTitle = (TextView) viewTitle.findViewById(R.id.tvTitle);
             holder.tvAbout = (TextView) viewTitle.findViewById(R.id.tvAbout);
             holder.tvDateofCreate = (TextView) viewTitle.findViewById(R.id.tvDateofCreate);
@@ -75,8 +76,8 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         }
         holder.tvTitle.setText(products.get(i).getTitle());
         holder.tvAbout.setText(products.get(i).getAbout());
-        holder.tvDateofCreate.setText(products.get(i).getDateStart().toString());
-        holder.tvDateofEnd.setText(products.get(i).getDateEnd().toString());
+        holder.tvDateofCreate.setText(products.get(i).getDateStart());
+        holder.tvDateofEnd.setText(products.get(i).getDateEnd());
         holder.tvTypeOf.setText(products.get(i).getType());
         holder.tvTagImportant.setVisibility(products.get(i).getVisibilityOfImportant());
         holder.tvTagToDay.setVisibility(products.get(i).getVisibilityOfToDay());
@@ -94,7 +95,7 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         ViewHolderContent viewHolderContent;
         if(viewContent == null){
             viewHolderContent = new ViewHolderContent();
-            viewContent = inflater.inflate(R.layout.adapter_content, viewGroup, false);
+            viewContent = inflater.inflate(R.layout.adapter, viewGroup, false);
             viewHolderContent.listView = (ListView) viewContent.findViewById(R.id.lvOfProduct);
             view.setTag(viewHolderContent);
         } else {

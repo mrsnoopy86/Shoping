@@ -1,8 +1,11 @@
 package ua.kh.tremtyachiy.shoping;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateFormat;
+import android.text.format.DateUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +18,13 @@ import com.mikepenz.materialdrawer.accountswitcher.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import ua.kh.tremtyachiy.shoping.adapter.AdapterSpisok;
+import ua.kh.tremtyachiy.shoping.util.Product;
 
 /**
  * Created by User on 09.06.2015.
@@ -23,6 +33,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 public class MainScreen extends AppCompatActivity {
     private Toolbar toolbar;
     private Drawer drawerMenu;
+    private DynamicListView dynamicListView;
+    ArrayList<Product> products = new ArrayList<Product>();
 
 
     @Override
@@ -33,6 +45,27 @@ public class MainScreen extends AppCompatActivity {
         initToolbar();
         initTabs();
         initDrawerMenu();
+        initDynamic();
+    }
+
+    private void initDynamic() {
+        initProductsList();
+        dynamicListView = (DynamicListView) findViewById(R.id.dynamicListView);
+        AdapterSpisok adapterSpisok = new AdapterSpisok(this, products);
+        dynamicListView.setAdapter(adapterSpisok);
+    }
+
+    private void initProductsList() {
+        products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
+                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
+        products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
+                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
+        products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
+                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
+        products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
+                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
+        products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
+                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
     }
 
     @Override
