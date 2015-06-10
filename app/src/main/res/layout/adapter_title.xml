@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Покупка продуктов"
-        android:id="@+id/textView"
+        android:id="@+id/tvTitle"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -23,27 +23,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Скупиться на выходные"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
+        android:id="@+id/tvAbout"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_alignStart="@+id/tvTitle"
         android:layout_marginTop="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="09.09.2015"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
+        android:id="@+id/tvDateofCreate"
+        android:layout_below="@+id/tvAbout"
+        android:layout_alignLeft="@+id/tvAbout"
         android:layout_marginTop="30dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="09.09.2015"
-        android:id="@+id/textView4"
-        android:layout_alignBottom="@+id/textView3"
+        android:id="@+id/tvDateofEnd"
+        android:layout_alignBottom="@+id/tvDateofCreate"
         android:layout_marginLeft="110dp"
         android:textColor="#FF0000" />
 
@@ -51,8 +51,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Продукты"
-        android:id="@+id/textView5"
-        android:layout_alignBottom="@+id/textView4"
+        android:id="@+id/tvTypeOf"
+        android:layout_alignBottom="@+id/tvDateofEnd"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:textColor="#FF0000" />
@@ -60,19 +60,20 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/ibLocation"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="@drawable/ic_location_on_black_24dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:focusableInTouchMode="true" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:id="@+id/imageView"
-        android:layout_below="@+id/textView4"
+        android:id="@+id/ivDeciver"
+        android:layout_below="@+id/tvDateofEnd"
         android:layout_marginTop="5dp"
         android:background="@color/colorPrimary" />
 
@@ -81,8 +82,8 @@
         android:layout_height="wrap_content"
         android:text="Важно"
         android:textColor="@color/colorPrimary"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/imageView"
+        android:id="@+id/tvTagImportant"
+        android:layout_below="@+id/ivDeciver"
         android:layout_marginTop="5dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
@@ -94,11 +95,11 @@
         android:layout_height="wrap_content"
         android:text="Сегодня"
         android:textColor="@color/colorToDayText"
-        android:id="@+id/textView7"
-        android:layout_below="@+id/imageView"
+        android:id="@+id/tvTagToDay"
+        android:layout_below="@+id/ivDeciver"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_toLeftOf="@+id/textView6"
+        android:layout_toLeftOf="@+id/tvTagImportant"
         android:layout_marginRight="20dp"
         android:background="@drawable/tag_view2"/>
 
@@ -107,11 +108,11 @@
         android:layout_height="wrap_content"
         android:text="Не забыть"
         android:textColor="@color/colorRememberText"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/imageView"
+        android:id="@+id/tvTagRememberThat"
+        android:layout_below="@+id/ivDeciver"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_toLeftOf="@+id/textView7"
+        android:layout_toLeftOf="@+id/tvTagToDay"
         android:layout_marginRight="20dp"
         android:background="@drawable/tag_view3"/>
 </RelativeLayout>
