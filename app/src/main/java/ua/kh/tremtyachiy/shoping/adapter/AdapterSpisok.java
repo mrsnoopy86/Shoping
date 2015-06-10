@@ -15,6 +15,7 @@ import ua.kh.tremtyachiy.shoping.util.Product;
 /**
  * Created by User on 09.06.2015.
  */
+
 public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     private Context context;
     ArrayList<Product> products = new ArrayList<>();
@@ -31,7 +32,7 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
 
     @NonNull
     @Override
-    public View getTitleView(int i, View view, ViewGroup viewGroup) {
+    public View getTitleView(int i, View view, @NonNull ViewGroup viewGroup) {
         return null;
     }
 
