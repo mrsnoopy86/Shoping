@@ -17,6 +17,14 @@ public class Product {
     private int visibilityOfToDay = View.VISIBLE;
     private int visibilityOfImportant = View.VISIBLE;
 
+    public Product(String title, String about, String type, Date dateStart, Date dateEnd) {
+        this.title = title;
+        this.about = about;
+        this.type = type;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+    }
+
     public Product(String title, String about, String type, Date dateStart, Date dateEnd, int visibilityOfRemember, int visibilityOfToDay, int visibilityOfImportant) {
         this.title = title;
         this.about = about;

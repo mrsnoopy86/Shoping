@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import ua.kh.tremtyachiy.shoping.R;
 import ua.kh.tremtyachiy.shoping.util.Product;
+import ua.kh.tremtyachiy.shoping.util.ProductContent;
 
 /**
  * Created by User on 09.06.2015.
@@ -87,6 +88,8 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     @NonNull
     @Override
     public View getContentView(int i, View view, @NonNull ViewGroup viewGroup) {
+        ArrayList<ProductContent> productContents = new ArrayList<>();
+        AdapterContent adapterContent = new AdapterContent(context, productContents);
         View viewContent = view;
         ViewHolderContent viewHolderContent;
         if(viewContent == null){
@@ -97,6 +100,8 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         } else {
             viewHolderContent = (ViewHolderContent) viewContent.getTag();
         }
+        viewHolderContent.listView.setAdapter(adapterContent);
+        adapterContent.notifyDataSetChanged();
         return viewContent;
     }
 }
