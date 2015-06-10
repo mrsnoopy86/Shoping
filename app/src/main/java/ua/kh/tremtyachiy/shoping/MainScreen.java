@@ -2,16 +2,21 @@ package ua.kh.tremtyachiy.shoping;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TabHost;
 
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+
 /**
  * Created by User on 09.06.2015.
  */
-public class MainScreen extends Activity {
+public class MainScreen extends AppCompatActivity {
     private Toolbar toolbar;
+    Drawer drawerMenu;
 
 
     @Override
@@ -21,6 +26,13 @@ public class MainScreen extends Activity {
 
         initToolbar();
         initTabs();
+        initDrawermenu();
+    }
+
+    private void initDrawermenu() {
+        drawerMenu = new DrawerBuilder()
+                .withActivity(this)
+                .build();
     }
 
     private void initTabs() {
@@ -71,7 +83,7 @@ public class MainScreen extends Activity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                drawerMenu.openDrawer();
             }
         });
     }
