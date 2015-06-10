@@ -45,10 +45,9 @@ public class MainScreen extends AppCompatActivity {
     }
 
     private void initDrawerMenu() {
-
         AccountHeader accountHeader = new AccountHeaderBuilder()
                 .withActivity(this)
-                .withHeaderBackground(R.drawable.shopinghelper_drawer_header)
+                .withHeaderBackground(R.raw.shopinghelper_drawer_header)
                 .withHeightDp(230)
                 .build();
 

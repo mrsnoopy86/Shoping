@@ -24,7 +24,7 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     ArrayList<Product> products = new ArrayList<>();
     LayoutInflater inflater;
 
-    protected AdapterSpisok(@NonNull Context context, ArrayList<Product> list) {
+    public AdapterSpisok(@NonNull Context context, ArrayList<Product> list) {
         super(context, R.layout.adapter, R.layout.adapter_title, R.layout.adapter_content);
         this.context = context;
         products = list;
