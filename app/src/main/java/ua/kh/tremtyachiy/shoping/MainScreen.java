@@ -10,13 +10,15 @@ import android.widget.TabHost;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
+import com.mikepenz.materialdrawer.accountswitcher.AccountHeaderBuilder;
 
 /**
  * Created by User on 09.06.2015.
  */
 public class MainScreen extends AppCompatActivity {
     private Toolbar toolbar;
-    Drawer drawerMenu;
+    private Drawer drawerMenu;
 
 
     @Override
@@ -29,8 +31,26 @@ public class MainScreen extends AppCompatActivity {
         initDrawermenu();
     }
 
+    @Override
+    public void onBackPressed() {
+        if(drawerMenu.isDrawerOpen()){
+            drawerMenu.closeDrawer();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     private void initDrawermenu() {
+        AccountHeader accountHeader = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.cover_material)
+                .build();
+
         drawerMenu = new DrawerBuilder()
+                .withAccountHeader(accountHeader)
+                .withToolbar(toolbar)
+                .withDisplayBelowToolbar(true)
+                .withActionBarDrawerToggleAnimated(true)
                 .withActivity(this)
                 .build();
     }
