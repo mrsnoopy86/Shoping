@@ -8,5 +8,8 @@
     <color name="colorToDayText">#2e7d32</color>
     <color name="colorRemember">#ea80fc</color>
     <color name="colorRememberText">#7f0284</color>
+    <color name="color_type_of_product">@color/colorPrimary</color>
+    <color name="color_type_of_buildmaterials">#0000FF</color>
+    <color name="color_of_technic">@android:color/holo_orange_dark</color>
 
 </resources>
