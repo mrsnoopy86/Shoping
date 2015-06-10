@@ -3,6 +3,7 @@
     <color name="colorPrimary">#f44336</color>
     <color name="colorPrimaryDark">#c3362b</color>
     <color name="mainBackground">#e6e5e5</color>
+    <color name="text">#636363</color>
     <color name="colorVagno">#ef9a9a</color>
     <color name="colorToDay">#00e676</color>
     <color name="colorToDayText">#2e7d32</color>

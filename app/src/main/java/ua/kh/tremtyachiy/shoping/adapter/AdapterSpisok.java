@@ -27,7 +27,7 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     LayoutInflater inflater;
 
     public AdapterSpisok(@NonNull Context context, ArrayList<Product> list) {
-        super(context, R.layout.adapter, R.layout.adapter_title, R.layout.adapter_content);
+        super(context, R.layout.adapter, R.id.adapter_title, R.id.adapter_content);
         this.context = context;
         products = list;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -36,7 +36,7 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         }
     }
 
-    class ViewHolderTitle {
+    class ViewHolder {
         TextView tvTitle;
         TextView tvAbout;
         TextView tvDateofCreate;
@@ -55,35 +55,37 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     @NonNull
     @Override
     public View getTitleView(int i, View view, @NonNull ViewGroup viewGroup) {
-        View viewTitle = view;
-        ViewHolderTitle holder;
+        Product product = products.get(i);
+        ViewHolder holder;
 
-        if(viewTitle == null){
-            holder = new ViewHolderTitle();
-            viewTitle = inflater.inflate(R.layout.adapter, viewGroup, false);
-            holder.tvTitle = (TextView) viewTitle.findViewById(R.id.tvTitle);
-            holder.tvAbout = (TextView) viewTitle.findViewById(R.id.tvAbout);
-            holder.tvDateofCreate = (TextView) viewTitle.findViewById(R.id.tvDateofCreate);
-            holder.tvDateofEnd = (TextView) viewTitle.findViewById(R.id.tvDateofEnd);
-            holder.tvTagImportant = (TextView) viewTitle.findViewById(R.id.tvTagImportant);
-            holder.tvTypeOf = (TextView) viewTitle.findViewById(R.id.tvTypeOf);
-            holder.tvTagToDay = (TextView) viewTitle.findViewById(R.id.tvTagToDay);
-            holder.tvTagRememberThat = (TextView) viewTitle.findViewById(R.id.tvTagRememberThat);
-            holder.ibLocation = (ImageButton) viewTitle.findViewById(R.id.ibLocation);
-            viewTitle.setTag(holder);
+        if(view == null){
+            holder = new ViewHolder();
+            view = inflater.inflate(R.layout.adapter, viewGroup, false);
+
+            holder.tvTitle = (TextView) view.findViewById(R.id.tvTitle);
+            holder.tvAbout = (TextView) view.findViewById(R.id.tvAbout);
+            holder.tvDateofCreate = (TextView) view.findViewById(R.id.tvDateofCreate);
+            holder.tvDateofEnd = (TextView) view.findViewById(R.id.tvDateofEnd);
+            holder.tvTagImportant = (TextView) view.findViewById(R.id.tvTagImportant);
+            holder.tvTypeOf = (TextView) view.findViewById(R.id.tvTypeOf);
+            holder.tvTagToDay = (TextView) view.findViewById(R.id.tvTagToDay);
+            holder.tvTagRememberThat = (TextView) view.findViewById(R.id.tvTagRememberThat);
+            holder.ibLocation = (ImageButton) view.findViewById(R.id.ibLocation);
+
+            view.setTag(holder);
         } else {
-            holder = (ViewHolderTitle) viewTitle.getTag();
+            holder = (ViewHolder) view.getTag();
         }
-        holder.tvTitle.setText(products.get(i).getTitle());
-        holder.tvAbout.setText(products.get(i).getAbout());
-        holder.tvDateofCreate.setText(products.get(i).getDateStart());
-        holder.tvDateofEnd.setText(products.get(i).getDateEnd());
-        holder.tvTypeOf.setText(products.get(i).getType());
-        holder.tvTagImportant.setVisibility(products.get(i).getVisibilityOfImportant());
-        holder.tvTagToDay.setVisibility(products.get(i).getVisibilityOfToDay());
-        holder.tvTagRememberThat.setVisibility(products.get(i).getVisibilityOfRemember());
+        holder.tvTitle.setText(product.getTitle());
+        holder.tvAbout.setText(product.getAbout());
+        holder.tvDateofCreate.setText(product.getDateStart());
+        holder.tvDateofEnd.setText(product.getDateEnd());
+        holder.tvTypeOf.setText(product.getType());
+        holder.tvTagImportant.setVisibility(product.getVisibilityOfImportant());
+        holder.tvTagToDay.setVisibility(product.getVisibilityOfToDay());
+        holder.tvTagRememberThat.setVisibility(product.getVisibilityOfRemember());
 
-        return viewTitle;
+        return view;
     }
 
     @NonNull
@@ -91,18 +93,17 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     public View getContentView(int i, View view, @NonNull ViewGroup viewGroup) {
         ArrayList<ProductContent> productContents = new ArrayList<>();
         AdapterContent adapterContent = new AdapterContent(context, productContents);
-        View viewContent = view;
         ViewHolderContent viewHolderContent;
-        if(viewContent == null){
+        if(view == null){
             viewHolderContent = new ViewHolderContent();
-            viewContent = inflater.inflate(R.layout.adapter, viewGroup, false);
-            viewHolderContent.listView = (ListView) viewContent.findViewById(R.id.lvOfProduct);
+            view = inflater.inflate(R.layout.adapter, viewGroup, false);
+            viewHolderContent.listView = (ListView) view.findViewById(R.id.lvOfProduct);
             view.setTag(viewHolderContent);
         } else {
-            viewHolderContent = (ViewHolderContent) viewContent.getTag();
+            viewHolderContent = (ViewHolderContent) view.getTag();
         }
         viewHolderContent.listView.setAdapter(adapterContent);
         adapterContent.notifyDataSetChanged();
-        return viewContent;
+        return view;
     }
 }
