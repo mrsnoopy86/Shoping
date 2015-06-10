@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.nhaarman.listviewanimations.itemmanipulation.expandablelistitem.ExpandableListItemAdapter;
@@ -29,7 +30,7 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         this.context = context;
         products = list;
 
-        for (int i = 0; i < 100; i++){
+        for (int i = 0; i < products.size(); i++){
             add(i);
         }
     }
@@ -46,10 +47,11 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         ImageButton ibLocation;
     }
     class ViewHolderContent {
-
+        ListView listView;
     }
 
 
+    @SuppressWarnings("ResourceType")
     @NonNull
     @Override
     public View getTitleView(int i, View view, @NonNull ViewGroup viewGroup) {
@@ -70,12 +72,31 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         } else {
             holder = (ViewHolderTitle) viewTitle.getTag();
         }
+        holder.tvTitle.setText(products.get(i).getTitle());
+        holder.tvAbout.setText(products.get(i).getAbout());
+        holder.tvDateofCreate.setText(products.get(i).getDateStart().toString());
+        holder.tvDateofEnd.setText(products.get(i).getDateEnd().toString());
+        holder.tvTypeOf.setText(products.get(i).getType());
+        holder.tvTagImportant.setVisibility(products.get(i).getVisibilityOfImportant());
+        holder.tvTagToDay.setVisibility(products.get(i).getVisibilityOfToDay());
+        holder.tvTagRememberThat.setVisibility(products.get(i).getVisibilityOfRemember());
+
         return viewTitle;
     }
 
     @NonNull
     @Override
     public View getContentView(int i, View view, @NonNull ViewGroup viewGroup) {
-        return null;
+        View viewContent = view;
+        ViewHolderContent viewHolderContent;
+        if(viewContent == null){
+            viewHolderContent = new ViewHolderContent();
+            viewContent = inflater.inflate(R.layout.adapter_content, viewGroup, false);
+            viewHolderContent.listView = (ListView) viewContent.findViewById(R.id.lvOfProduct);
+            view.setTag(viewHolderContent);
+        } else {
+            viewHolderContent = (ViewHolderContent) viewContent.getTag();
+        }
+        return viewContent;
     }
 }
