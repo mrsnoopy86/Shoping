@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nhaarman.listviewanimations.itemmanipulation.expandablelistitem.ExpandableListItemAdapter;
@@ -24,6 +25,7 @@ import ua.kh.tremtyachiy.shoping.util.ProductContent;
 public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     private Context context;
     private ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<ProductContent> productContents = new ArrayList<>();
     LayoutInflater inflater;
 
     public AdapterSpisok(@NonNull Context context, ArrayList<Product> list) {
@@ -91,7 +93,7 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     @NonNull
     @Override
     public View getContentView(int i, View view, @NonNull ViewGroup viewGroup) {
-        ArrayList<ProductContent> productContents = new ArrayList<>();
+        initProductContent();
         AdapterContent adapterContent = new AdapterContent(context, productContents);
         ViewHolderContent viewHolderContent;
         if(view == null){
@@ -102,8 +104,21 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         } else {
             viewHolderContent = (ViewHolderContent) view.getTag();
         }
+        RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.adapter_title);
+        relativeLayout.setVisibility(View.GONE);
         viewHolderContent.listView.setAdapter(adapterContent);
-        adapterContent.notifyDataSetChanged();
         return view;
+    }
+
+    private void initProductContent() {
+        productContents.add(new ProductContent("Молоко", "литр", 2));
+        productContents.add(new ProductContent("Кефир", "литр", 2));
+        productContents.add(new ProductContent("Вода", "литр", 2));
+        productContents.add(new ProductContent("Картофель", "кг", 2));
+        productContents.add(new ProductContent("Чай", "шт", 2));
+        productContents.add(new ProductContent("Пиво", "литр", 2));
+        productContents.add(new ProductContent("Сметана", "шт", 2));
+        productContents.add(new ProductContent("Батон", "шт", 2));
+        productContents.add(new ProductContent("Помидоры", "кг", 2));
     }
 }

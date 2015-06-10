@@ -23,6 +23,7 @@ public class AdapterContent extends BaseAdapter {
     public AdapterContent(Context context, ArrayList<ProductContent> productContents) {
         this.context = context;
         this.productContents = productContents;
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -50,23 +51,22 @@ public class AdapterContent extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
         ViewHolder holder;
-        if(view == null){
+        if(convertView == null){
             holder = new ViewHolder();
-            view = inflater.inflate(R.layout.adapter_second_content, parent, false);
-            holder.tvPosition = (TextView) view.findViewById(R.id.tvPosition);
-            holder.tvProductName = (TextView) view.findViewById(R.id.tvProductName);
-            holder.tvCount = (TextView) view.findViewById(R.id.tvCount);
-            holder.tvUnitOfMeasure = (TextView) view.findViewById(R.id.tvUnitOfMeasure);
-            view.setTag(holder);
+            convertView = inflater.inflate(R.layout.adapter_second_content, parent, false);
+            holder.tvPosition = (TextView) convertView.findViewById(R.id.tvPosition);
+            holder.tvProductName = (TextView) convertView.findViewById(R.id.tvProductName);
+            holder.tvCount = (TextView) convertView.findViewById(R.id.tvCount);
+            holder.tvUnitOfMeasure = (TextView) convertView.findViewById(R.id.tvUnitOfMeasure);
+            convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) view.getTag();
+            holder = (ViewHolder) convertView.getTag();
         }
-        holder.tvPosition.setText(productContents.get(position).getProduct() + ". ");
+        holder.tvPosition.setText((position + 1) + ". ");
         holder.tvProductName.setText(productContents.get(position).getProduct());
         holder.tvCount.setText(" - " + productContents.get(position).getValue());
         holder.tvUnitOfMeasure.setText(" " + productContents.get(position).getUnitOfMeasure());
-        return view;
+        return convertView;
     }
 }
