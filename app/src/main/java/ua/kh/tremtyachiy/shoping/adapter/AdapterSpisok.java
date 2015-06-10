@@ -87,7 +87,8 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         holder.tvTagImportant.setVisibility(product.getVisibilityOfImportant());
         holder.tvTagToDay.setVisibility(product.getVisibilityOfToDay());
         holder.tvTagRememberThat.setVisibility(product.getVisibilityOfRemember());
-
+        RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.adapter_content);
+        relativeLayout.setVisibility(View.GONE);
         return view;
     }
 
@@ -107,7 +108,6 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.adapter_title);
         relativeLayout.setVisibility(View.GONE);
         viewHolderContent.listView.setAdapter(adapterContent);
-        adapterContent.notifyDataSetChanged();
         return view;
     }
 

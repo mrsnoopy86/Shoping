@@ -41,5 +41,6 @@
             android:id="@+id/tvUnitOfMeasure"
             android:textSize="18sp"
             android:textColor="@android:color/black"/>
+
     </TableRow>
 </TableLayout>

@@ -41,7 +41,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/dynamicListView"
-                        android:dividerHeight="10px"/>
+                        android:dividerHeight="8px"/>
 
                 </LinearLayout>
 
@@ -69,8 +69,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"/>
+
             </FrameLayout>
+
         </LinearLayout>
+
     </TabHost>
 
 </LinearLayout>
