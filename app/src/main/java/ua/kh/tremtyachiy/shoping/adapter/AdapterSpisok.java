@@ -28,9 +28,10 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     private ArrayList<ProductContent> productContents = new ArrayList<>();
     LayoutInflater inflater;
 
-    public AdapterSpisok(@NonNull Context context, ArrayList<Product> list) {
+    public AdapterSpisok(@NonNull Context context, ArrayList<Product> list, ArrayList<ProductContent> productContents) {
         super(context, R.layout.adapter, R.id.adapter_title, R.id.adapter_content);
         this.context = context;
+        this.productContents = productContents;
         products = list;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         for (int i = 0; i < products.size(); i++){
@@ -93,7 +94,6 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     @NonNull
     @Override
     public View getContentView(int i, View view, @NonNull ViewGroup viewGroup) {
-        initProductContent();
         AdapterContent adapterContent = new AdapterContent(context, productContents);
         ViewHolderContent viewHolderContent;
         if(view == null){
@@ -107,18 +107,9 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.adapter_title);
         relativeLayout.setVisibility(View.GONE);
         viewHolderContent.listView.setAdapter(adapterContent);
+        adapterContent.notifyDataSetChanged();
         return view;
     }
 
-    private void initProductContent() {
-        productContents.add(new ProductContent("Молоко", "литр", 2));
-        productContents.add(new ProductContent("Кефир", "литр", 2));
-        productContents.add(new ProductContent("Вода", "литр", 2));
-        productContents.add(new ProductContent("Картофель", "кг", 2));
-        productContents.add(new ProductContent("Чай", "шт", 2));
-        productContents.add(new ProductContent("Пиво", "литр", 2));
-        productContents.add(new ProductContent("Сметана", "шт", 2));
-        productContents.add(new ProductContent("Батон", "шт", 2));
-        productContents.add(new ProductContent("Помидоры", "кг", 2));
-    }
+
 }

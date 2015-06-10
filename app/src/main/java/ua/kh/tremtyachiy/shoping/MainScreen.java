@@ -9,6 +9,7 @@ import android.text.format.DateUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TabHost;
 
 import com.mikepenz.materialdrawer.Drawer;
@@ -23,8 +24,10 @@ import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
 import java.util.ArrayList;
 import java.util.Date;
 
+import ua.kh.tremtyachiy.shoping.adapter.AdapterContent;
 import ua.kh.tremtyachiy.shoping.adapter.AdapterSpisok;
 import ua.kh.tremtyachiy.shoping.util.Product;
+import ua.kh.tremtyachiy.shoping.util.ProductContent;
 
 /**
  * Created by User on 09.06.2015.
@@ -35,6 +38,7 @@ public class MainScreen extends AppCompatActivity {
     private Drawer drawerMenu;
     private DynamicListView dynamicListView;
     ArrayList<Product> products = new ArrayList<Product>();
+    private ArrayList<ProductContent> productContents = new ArrayList<>();
 
 
     @Override
@@ -46,12 +50,19 @@ public class MainScreen extends AppCompatActivity {
         initTabs();
         initDrawerMenu();
         initDynamic();
+        initTabList();
+    }
+
+    private void initTabList() {
+        ListView listView = (ListView) findViewById(R.id.listTest);
+        AdapterContent aaa = new AdapterContent(this, productContents);
+        listView.setAdapter(aaa);
     }
 
     private void initDynamic() {
         initProductsList();
         dynamicListView = (DynamicListView) findViewById(R.id.dynamicListView);
-        AdapterSpisok adapterSpisok = new AdapterSpisok(this, products);
+        AdapterSpisok adapterSpisok = new AdapterSpisok(this, products, productContents);
         dynamicListView.setAdapter(adapterSpisok);
     }
 
@@ -66,6 +77,16 @@ public class MainScreen extends AppCompatActivity {
                 DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
         products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
                 DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
+
+        productContents.add(new ProductContent("Молоко", "литр", 2));
+        productContents.add(new ProductContent("Кефир", "литр", 2));
+        productContents.add(new ProductContent("Вода", "литр", 2));
+        productContents.add(new ProductContent("Картофель", "кг", 2));
+        productContents.add(new ProductContent("Чай", "шт", 2));
+        productContents.add(new ProductContent("Пиво", "литр", 2));
+        productContents.add(new ProductContent("Сметана", "шт", 2));
+        productContents.add(new ProductContent("Батон", "шт", 2));
+        productContents.add(new ProductContent("Помидоры", "кг", 2));
     }
 
     @Override
