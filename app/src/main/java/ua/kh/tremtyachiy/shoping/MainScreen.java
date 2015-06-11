@@ -26,7 +26,6 @@ import ua.kh.tremtyachiy.shoping.util.ProductContent;
 
 public class MainScreen extends AppCompatActivity {
     private Toolbar toolbar;
-    private DynamicListView dynamicListView;
     ArrayList<Product> products = new ArrayList<Product>();
     private ArrayList<ProductContent> productContents = new ArrayList<>();
     DrawerMyMenu drawerMyMenu = new DrawerMyMenu();
@@ -48,7 +47,7 @@ public class MainScreen extends AppCompatActivity {
         AdapterContent aaa = new AdapterContent(this, productContents);
         listView.setAdapter(aaa);
         initProductsList();
-        dynamicListView = (DynamicListView) findViewById(R.id.dynamicListView);
+        DynamicListView dynamicListView = (DynamicListView) findViewById(R.id.dynamicListView);
         AdapterSpisok adapterSpisok = new AdapterSpisok(this, products, productContents);
         dynamicListView.setAdapter(adapterSpisok);
         /*
