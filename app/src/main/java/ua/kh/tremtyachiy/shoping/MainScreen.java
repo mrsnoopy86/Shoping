@@ -69,14 +69,14 @@ public class MainScreen extends AppCompatActivity {
     private void initProductsList() {
         products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
                 DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
-        products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
-                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
-        products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
-                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
-        products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
-                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
-        products.add(new Product("Я хочу купить продукты", "Жена зараза заставила сходить скупиться", "Продукты",
-                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date())));
+        products.add(new Product("Ремонт в ванной", "Необходимо быстро скупиться", "Стройматериалы",
+                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date()), View.INVISIBLE, View.VISIBLE, View.INVISIBLE));
+        products.add(new Product("Ремонт в кухне", "Недорого но качественно", "Стройматериалы",
+                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date()), View.VISIBLE, View.VISIBLE, View.INVISIBLE));
+        products.add(new Product("Телевизор", "Большой и с интернетом", "Техника",
+                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date()), View.VISIBLE, View.INVISIBLE, View.INVISIBLE));
+        products.add(new Product("Купить продукты", "Скоро отмечать день рождение", "Продукты",
+                DateFormat.format("dd-MM-yyyy", new Date()), DateFormat.format("dd-MM-yyyy", new Date()), View.INVISIBLE, View.INVISIBLE, View.VISIBLE));
 
         productContents.add(new ProductContent("Молоко", "литр", 2));
         productContents.add(new ProductContent("Кефир", "литр", 2));

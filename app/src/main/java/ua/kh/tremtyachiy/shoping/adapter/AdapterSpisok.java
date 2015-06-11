@@ -83,6 +83,19 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
         holder.tvAbout.setText(product.getAbout());
         holder.tvDateofCreate.setText(product.getDateStart());
         holder.tvDateofEnd.setText(product.getDateEnd());
+        switch (product.getType()){
+            case "Продукты":
+                holder.tvTypeOf.setTextColor(context.getResources().getColor(R.color.color_type_of_product));
+                break;
+            case "Стройматериалы":
+                holder.tvTypeOf.setTextColor(context.getResources().getColor(R.color.color_type_of_buildmaterials));
+                break;
+            case "Техника":
+                holder.tvTypeOf.setTextColor(context.getResources().getColor(R.color.color_of_technic));
+                break;
+            default:
+                break;
+        }
         holder.tvTypeOf.setText(product.getType());
         holder.tvTagImportant.setVisibility(product.getVisibilityOfImportant());
         holder.tvTagToDay.setVisibility(product.getVisibilityOfToDay());
