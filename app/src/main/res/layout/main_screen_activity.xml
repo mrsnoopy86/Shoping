@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -45,18 +46,36 @@
 
                 </LinearLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <ListView
-                        android:id="@+id/listTest"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/view"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:text="@string/help_add"
+                        android:textColor="@color/hint_text"
+                        android:textSize="22sp"
+                        android:layout_margin="10dp"/>
 
-                </LinearLayout>
+                    <view
+                        android:id="@+id/view"
+                        class="android.support.design.widget.FloatingActionButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="20dp"
+                        app:rippleColor="@color/colorPrimary"
+                        style="@style/FloatingMy" />
+
+                </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/tab3"

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Shoping Helper</string>
     <string name="sort_menu_item">Sort</string>
-    <string name="edit_item_menu">Edit</string>
+    <string name="edit_item_menu">Очистить</string>
     <string name="spisok_tab">Список</string>
     <string name="spisok_tab2">Создать</string>
     <string name="spisok_tab3">Адреса</string>
@@ -12,4 +12,5 @@
     <string name="nav_menu_item4">Помощь</string>
     <string name="nav_menu_item5">Выход</string>
     <string name="title_header_drawer">Покупки стали еще проще</string>
+    <string name="help_add"><![CDATA[Чтобы создать новый список, нажмите на < Плюс >]]></string>
 </resources>

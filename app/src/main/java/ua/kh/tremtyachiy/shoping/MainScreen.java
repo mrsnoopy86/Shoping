@@ -6,7 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TabHost;
 
 import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
@@ -14,7 +13,6 @@ import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
 import java.util.ArrayList;
 import java.util.Date;
 
-import ua.kh.tremtyachiy.shoping.adapter.AdapterContent;
 import ua.kh.tremtyachiy.shoping.adapter.AdapterSpisok;
 import ua.kh.tremtyachiy.shoping.util.DrawerMyMenu;
 import ua.kh.tremtyachiy.shoping.util.Product;
@@ -37,15 +35,13 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.main_screen_activity);
         initView();
         drawerMyMenu.initDrawerMenu(this, toolbar);
+
     }
 
     private void initView() {
         /*
         ListView
          */
-        ListView listView = (ListView) findViewById(R.id.listTest);
-        AdapterContent aaa = new AdapterContent(this, productContents);
-        listView.setAdapter(aaa);
         initProductsList();
         DynamicListView dynamicListView = (DynamicListView) findViewById(R.id.dynamicListView);
         AdapterSpisok adapterSpisok = new AdapterSpisok(this, products, productContents);
