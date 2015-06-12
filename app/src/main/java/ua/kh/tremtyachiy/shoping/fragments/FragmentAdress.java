@@ -19,7 +19,6 @@ import ua.kh.tremtyachiy.shoping.util.Adress;
  * Created by Admin on 10.06.2015.
  */
 public class FragmentAdress extends Fragment{
-    private ListView listView;
     ArrayList<Adress> list = new ArrayList<>();
 
     @Nullable
@@ -27,7 +26,7 @@ public class FragmentAdress extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         initList();
         View fragmentView = inflater.inflate(R.layout.fragmentadres, container, false);
-        listView = (ListView) fragmentView.findViewById(R.id.listViewAdress);
+        ListView listView = (ListView) fragmentView.findViewById(R.id.listViewAdress);
         AdapterAdress adapter = new AdapterAdress(getActivity(), list);
         listView.setAdapter(adapter);
         return fragmentView;
