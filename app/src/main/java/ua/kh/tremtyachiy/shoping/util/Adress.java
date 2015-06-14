@@ -6,6 +6,7 @@ import android.net.Uri;
 /**
  * Created by User on 12.06.2015.
  */
+
 public class Adress {
     private String nameCompany;
     private String adres;
