@@ -13,4 +13,9 @@
     <string name="nav_menu_item5">Выход</string>
     <string name="title_header_drawer">Покупки стали еще проще</string>
     <string name="help_add"><![CDATA[Чтобы создать новый список, нажмите на < Плюс >]]></string>
+    <string name="MAP_KEY_API">AIzaSyBwXYZHRZMvoSr4wUGifIUS7rkwL14bPFU</string>
+    <string name="titleAdd">Название</string>
+    <string name="adoutAdd">Описание</string>
+    <string name="dateEndAdd">Дата окончания</string>
+    <string name="typeOfAdd">Тип списка</string>
 </resources>

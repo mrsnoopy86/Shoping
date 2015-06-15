@@ -1,22 +1,26 @@
 package ua.kh.tremtyachiy.shoping;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TabHost;
+import android.widget.TextView;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.*;
 import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 import ua.kh.tremtyachiy.shoping.adapter.AdapterSpisok;
+import ua.kh.tremtyachiy.shoping.fragments.FragmentAdd;
 import ua.kh.tremtyachiy.shoping.util.DrawerMyMenu;
 import ua.kh.tremtyachiy.shoping.util.Product;
 import ua.kh.tremtyachiy.shoping.util.ProductContent;
@@ -31,7 +35,10 @@ public class MainScreen extends AppCompatActivity {
     private ArrayList<Product> products = new ArrayList<Product>();
     private ArrayList<ProductContent> productContents = new ArrayList<>();
     private DrawerMyMenu drawerMyMenu = new DrawerMyMenu();
-
+    private FloatingActionButton fab;
+    private TextView textViewHint;
+    private FragmentAdd fragmentAdd = new FragmentAdd();
+    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +51,15 @@ public class MainScreen extends AppCompatActivity {
     }
 
     private void initMap() {
-        if (mMap != null) {
-            return;
+        try {
+            if(null == mMap){
+                mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+            }
+        } catch (NullPointerException exception){
+            exception.printStackTrace();
         }
-        mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        mMap.setBuildingsEnabled(true);
     }
 
     public GoogleMap getMap() {
@@ -56,6 +67,13 @@ public class MainScreen extends AppCompatActivity {
     }
 
     private void initView() {
+        /*
+        Init element of Fragment Add
+         */
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        textViewHint = (TextView) findViewById(R.id.textViewHint);
+        fab.setVisibility(View.VISIBLE);
+        textViewHint.setVisibility(View.VISIBLE);
         /*
         ListView
          */
@@ -111,6 +129,7 @@ public class MainScreen extends AppCompatActivity {
             }
         });
     }
+
     /*
     Временная база данных :) для проверки работоспособности
      */
@@ -142,7 +161,25 @@ public class MainScreen extends AppCompatActivity {
         if(drawerMyMenu.getDrawerMenu() != null && drawerMyMenu.getDrawerMenu().isDrawerOpen()){
             drawerMyMenu.getDrawerMenu().closeDrawer();
         } else {
-            super.onBackPressed();
+            if(fragmentAdd.isAdded()){
+                fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+                fragmentTransaction.remove(fragmentAdd);
+                fragmentTransaction.commit();
+                fab.setVisibility(View.VISIBLE);
+                textViewHint.setVisibility(View.VISIBLE);
+            } else {
+                super.onBackPressed();
+            }
         }
+    }
+
+    public void onClickAdd(View view) {
+        fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fab.setVisibility(View.GONE);
+        textViewHint.setVisibility(View.GONE);
+        fragmentTransaction.add(R.id.tab2, fragmentAdd);
+        fragmentTransaction.commit();
     }
 }
