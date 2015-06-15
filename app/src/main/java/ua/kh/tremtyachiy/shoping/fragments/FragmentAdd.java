@@ -13,17 +13,18 @@ import ua.kh.tremtyachiy.shoping.R;
  * Created by Admin on 10.06.2015.
  */
 public class FragmentAdd extends Fragment{
-
+    private View fragmentView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragmentadd, container, false);
+        fragmentView = inflater.inflate(R.layout.fragmentadd, container, false);
         return fragmentView;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        
     }
 }
