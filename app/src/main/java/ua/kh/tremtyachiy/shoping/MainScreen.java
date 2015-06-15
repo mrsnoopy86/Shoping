@@ -28,9 +28,9 @@ import ua.kh.tremtyachiy.shoping.util.ProductContent;
 public class MainScreen extends AppCompatActivity {
     private GoogleMap mMap;
     private Toolbar toolbar;
-    ArrayList<Product> products = new ArrayList<Product>();
+    private ArrayList<Product> products = new ArrayList<Product>();
     private ArrayList<ProductContent> productContents = new ArrayList<>();
-    DrawerMyMenu drawerMyMenu = new DrawerMyMenu();
+    private DrawerMyMenu drawerMyMenu = new DrawerMyMenu();
 
 
     @Override
@@ -51,7 +51,7 @@ public class MainScreen extends AppCompatActivity {
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
     }
 
-    public GoogleMap getmMap() {
+    public GoogleMap getMap() {
         return mMap;
     }
 
