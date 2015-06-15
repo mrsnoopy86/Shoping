@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TabHost;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
 
 import java.util.ArrayList;
@@ -23,6 +26,7 @@ import ua.kh.tremtyachiy.shoping.util.ProductContent;
  */
 
 public class MainScreen extends AppCompatActivity {
+    private GoogleMap mMap;
     private Toolbar toolbar;
     ArrayList<Product> products = new ArrayList<Product>();
     private ArrayList<ProductContent> productContents = new ArrayList<>();
@@ -35,7 +39,20 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.main_screen_activity);
         initView();
         drawerMyMenu.initDrawerMenu(this, toolbar);
+        initMap();
 
+    }
+
+    private void initMap() {
+        if (mMap != null) {
+            return;
+        }
+        mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+    }
+
+    public GoogleMap getmMap() {
+        return mMap;
     }
 
     private void initView() {
