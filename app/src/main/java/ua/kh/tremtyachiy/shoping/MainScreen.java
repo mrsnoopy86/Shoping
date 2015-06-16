@@ -1,7 +1,5 @@
 package ua.kh.tremtyachiy.shoping;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,7 +11,13 @@ import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
 
 import java.util.ArrayList;
@@ -29,8 +33,9 @@ import ua.kh.tremtyachiy.shoping.util.ProductContent;
  * Created by User on 09.06.2015.
  */
 
-public class MainScreen extends AppCompatActivity {
+public class MainScreen extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
+    private MapFragment mMapFragment;
     private Toolbar toolbar;
     private ArrayList<Product> products = new ArrayList<Product>();
     private ArrayList<ProductContent> productContents = new ArrayList<>();
@@ -46,24 +51,6 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.main_screen_activity);
         initView();
         drawerMyMenu.initDrawerMenu(this, toolbar);
-        initMap();
-
-    }
-
-    private void initMap() {
-        try {
-            if(null == mMap){
-                mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-            }
-        } catch (NullPointerException exception){
-            exception.printStackTrace();
-        }
-        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-        mMap.setBuildingsEnabled(true);
-    }
-
-    public GoogleMap getMap() {
-        return mMap;
     }
 
     private void initView() {
@@ -107,6 +94,10 @@ public class MainScreen extends AppCompatActivity {
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
+                switch (tabId){
+                    case "tag4":
+                        initMap();
+                }
             }
         });
         /*
@@ -181,5 +172,57 @@ public class MainScreen extends AppCompatActivity {
         textViewHint.setVisibility(View.GONE);
         fragmentTransaction.add(R.id.tab2, fragmentAdd);
         fragmentTransaction.commit();
+    }
+
+    /*
+    Init Map of Google
+     */
+
+    public void initMap() {
+        try {
+            if(mMap == null){
+                mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+                mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+            }
+        } catch (NullPointerException exception){
+            exception.printStackTrace();
+        }
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.setBuildingsEnabled(true);
+        mMapFragment.getMapAsync(this);
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.setMyLocationEnabled(true);
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                new LatLng(49.994399, 36.236583), 18));
+        googleMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                .anchor(0.0f, 1.0f)
+                .position(new LatLng(49.994399, 36.236583)));
+        googleMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                .anchor(0.0f, 1.0f)
+                .position(new LatLng(49.944399, 36.236183)));
+        googleMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                .anchor(0.0f, 1.0f)
+                .position(new LatLng(49.914399, 36.236883)));
+        googleMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                .anchor(0.0f, 1.0f)
+                .position(new LatLng(49.954399, 36.236553)));
+        googleMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                .anchor(0.0f, 1.0f)
+                .position(new LatLng(49.994299, 36.231583)));
+        googleMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                .anchor(0.0f, 1.0f)
+                .position(new LatLng(49.994599, 36.236513)));
     }
 }
