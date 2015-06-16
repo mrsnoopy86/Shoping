@@ -18,4 +18,6 @@
     <string name="adoutAdd">Описание</string>
     <string name="dateEndAdd">Дата окончания</string>
     <string name="typeOfAdd">Тип списка</string>
+    <string name="endofshoping">Окончание покупки</string>
+    <string name="dateofend">29.09.2015</string>
 </resources>
