@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shoping Helper</string>
+    <string name="app_name">Shopping Helper</string>
     <string name="sort_menu_item">Sort</string>
     <string name="edit_item_menu">Очистить</string>
     <string name="spisok_tab">Список</string>

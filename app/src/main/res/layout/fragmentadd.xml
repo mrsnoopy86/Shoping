@@ -17,7 +17,6 @@
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/holo_red_light"
         android:textSize="20sp"
-        android:textStyle="bold"
         android:background="@drawable/apptheme_edit_text_holo_light" />
 
     <EditText
@@ -40,7 +39,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="20sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/color_type_of_buildmaterials"
         android:layout_alignBottom="@+id/imageButton"
         android:textStyle="bold"
         android:gravity="center_vertical" />
@@ -154,7 +153,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
+        android:id="@+id/etProduct"
         android:layout_below="@+id/relativeLayout2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -162,13 +161,14 @@
         android:layout_marginTop="5dp"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/holo_red_light"
-        android:background="@drawable/apptheme_edit_text_holo_light"/>
+        android:background="@drawable/apptheme_edit_text_holo_light"
+        android:singleLine="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/editText3"
+        android:id="@+id/etValue"
+        android:layout_below="@+id/etProduct"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:hint="Количество"
@@ -180,12 +180,13 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText4"
+        android:layout_below="@+id/etValue"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:id="@+id/relativeLayout3">
 
         <info.hoang8f.android.segmented.SegmentedGroup
+            android:id="@+id/unitOfMeasure"
             xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -221,9 +222,9 @@
     <Button
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:text=" Добавить "
-        android:id="@+id/button"
+        android:id="@+id/btnAddFragmentAdd"
         android:layout_below="@+id/relativeLayout3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -234,9 +235,9 @@
     <Button
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:text=" Очистить "
-        android:id="@+id/button2"
+        android:id="@+id/btnClearFragmentAdd"
         android:layout_below="@+id/relativeLayout3"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -247,11 +248,10 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/button"
+        android:id="@+id/listViewAddFragment"
+        android:layout_below="@+id/btnAddFragmentAdd"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"
-        />
+        android:layout_marginTop="5dp" />
 
 </RelativeLayout>

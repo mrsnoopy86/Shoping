@@ -55,7 +55,7 @@ public class MainScreen extends AppCompatActivity implements OnMapReadyCallback 
 
     private void initView() {
         /*
-        Init element of Fragment Add
+        Init element of Tab Add
          */
         fab = (FloatingActionButton) findViewById(R.id.fab);
         textViewHint = (TextView) findViewById(R.id.textViewHint);

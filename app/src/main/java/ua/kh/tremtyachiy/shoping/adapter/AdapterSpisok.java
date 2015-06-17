@@ -108,7 +108,7 @@ public class AdapterSpisok extends ExpandableListItemAdapter<Integer> {
     @NonNull
     @Override
     public View getContentView(int i, View view, @NonNull ViewGroup viewGroup) {
-        AdapterContent adapterContent = new AdapterContent(context, productContents);
+        AdapterContent adapterContent = new AdapterContent(context, productContents, AdapterContent.Mode.VIEW);
         ViewHolderContent viewHolderContent;
         if(view == null){
             viewHolderContent = new ViewHolderContent();
