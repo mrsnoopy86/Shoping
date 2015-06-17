@@ -24,7 +24,7 @@ public class AdapterContent extends BaseAdapter {
     ArrayList<ProductContent> productContents = new ArrayList<>();
     Mode mode = VIEW;
 
-    public enum Mode{
+    public enum Mode {
         CREATE, VIEW
     }
 
@@ -50,7 +50,7 @@ public class AdapterContent extends BaseAdapter {
         return position;
     }
 
-    class ViewHolder{
+    class ViewHolder {
         TextView tvPosition;
         TextView tvProductName;
         TextView tvCount;
@@ -62,45 +62,25 @@ public class AdapterContent extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        switch(mode){
-            case VIEW:
-                if(convertView == null){
-                    holder = new ViewHolder();
-                    convertView = inflater.inflate(R.layout.adapter_second_content, parent, false);
-                    holder.tvPosition = (TextView) convertView.findViewById(R.id.tvPosition);
-                    holder.tvProductName = (TextView) convertView.findViewById(R.id.tvProductName);
-                    holder.tvCount = (TextView) convertView.findViewById(R.id.tvCount);
-                    holder.tvUnitOfMeasure = (TextView) convertView.findViewById(R.id.tvUnitOfMeasure);
-                    holder.ibDelete = (ImageButton) convertView.findViewById(R.id.ibDelete);
-                    holder.ibDelete.setVisibility(View.GONE);
-                    convertView.setTag(holder);
-                } else {
-                    holder = (ViewHolder) convertView.getTag();
-                }
-                holder.tvPosition.setText((position + 1) + ". ");
-                holder.tvProductName.setText(productContents.get(position).getProduct());
-                holder.tvCount.setText(" - " + productContents.get(position).getValue());
-                holder.tvUnitOfMeasure.setText(" " + productContents.get(position).getUnitOfMeasure());
-                break;
-            case CREATE:
-                if(convertView == null){
-                    holder = new ViewHolder();
-                    convertView = inflater.inflate(R.layout.adapter_second_content, parent, false);
-                    holder.tvPosition = (TextView) convertView.findViewById(R.id.tvPosition);
-                    holder.tvProductName = (TextView) convertView.findViewById(R.id.tvProductName);
-                    holder.tvCount = (TextView) convertView.findViewById(R.id.tvCount);
-                    holder.tvUnitOfMeasure = (TextView) convertView.findViewById(R.id.tvUnitOfMeasure);
-                    holder.ibDelete = (ImageButton) convertView.findViewById(R.id.ibDelete);
-                    convertView.setTag(holder);
-                } else {
-                    holder = (ViewHolder) convertView.getTag();
-                }
-                holder.tvPosition.setText((position + 1) + ". ");
-                holder.tvProductName.setText(productContents.get(position).getProduct());
-                holder.tvCount.setText(" - " + productContents.get(position).getValue());
-                holder.tvUnitOfMeasure.setText(" " + productContents.get(position).getUnitOfMeasure());
-                break;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = inflater.inflate(R.layout.adapter_second_content, parent, false);
+            holder.tvPosition = (TextView) convertView.findViewById(R.id.tvPosition);
+            holder.tvProductName = (TextView) convertView.findViewById(R.id.tvProductName);
+            holder.tvCount = (TextView) convertView.findViewById(R.id.tvCount);
+            holder.tvUnitOfMeasure = (TextView) convertView.findViewById(R.id.tvUnitOfMeasure);
+            holder.ibDelete = (ImageButton) convertView.findViewById(R.id.ibDelete);
+            if (mode == VIEW) {
+                holder.ibDelete.setVisibility(View.GONE);
+            }
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
+        holder.tvPosition.setText((position + 1) + ". ");
+        holder.tvProductName.setText(productContents.get(position).getProduct());
+        holder.tvCount.setText(" - " + productContents.get(position).getValue());
+        holder.tvUnitOfMeasure.setText(" " + productContents.get(position).getUnitOfMeasure());
         return convertView;
     }
 }

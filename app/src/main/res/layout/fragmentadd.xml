@@ -1,257 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/md_white_1000"
+    android:orientation="vertical"
     android:padding="10dp">
 
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/titleAdd"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/holo_red_light"
-        android:textSize="20sp"
-        android:background="@drawable/apptheme_edit_text_holo_light" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/adoutAdd"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/holo_red_light"
-        android:background="@drawable/apptheme_edit_text_holo_light" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/endofshoping"
-        android:id="@+id/textView"
-        android:layout_below="@+id/editText2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:textColor="@color/color_type_of_buildmaterials"
-        android:layout_alignBottom="@+id/imageButton"
-        android:textStyle="bold"
-        android:gravity="center_vertical" />
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:hint="@string/titleAdd"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/holo_red_light"
+                android:textSize="20sp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:layout_below="@+id/editText2"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:background="@android:drawable/ic_menu_my_calendar"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"/>
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:hint="@string/adoutAdd"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/holo_red_light" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/dateofend"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/editText2"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton"
-        android:layout_alignBottom="@+id/imageButton"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        android:gravity="center" />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:id="@+id/relativeLayout">
-
-        <info.hoang8f.android.segmented.SegmentedGroup
-            xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            segmentedgroup:border_width="2dp"
-            segmentedgroup:corner_radius="10dp"
-            segmentedgroup:tint_color="@color/colorPrimary"
-            android:orientation="horizontal" >
-
-            <RadioButton
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Продукты"
-                android:id="@+id/radioButton"
-                style="@style/RadioButton"/>
+                android:layout_alignBottom="@+id/imageButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/editText2"
+                android:gravity="center_vertical"
+                android:text="@string/endofshoping"
+                android:textColor="@color/color_type_of_buildmaterials"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-            <RadioButton
+            <ImageButton
+                android:id="@+id/imageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Стройматериалы"
-                android:id="@+id/radioButton2"
-                style="@style/RadioButton"/>
+                android:layout_below="@+id/editText2"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/textView"
+                android:layout_toRightOf="@+id/textView"
+                android:background="@android:drawable/ic_menu_my_calendar" />
 
-            <RadioButton
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageButton"
+                android:layout_below="@+id/editText2"
+                android:layout_toEndOf="@+id/imageButton"
+                android:layout_toRightOf="@+id/imageButton"
+                android:gravity="center"
+                android:text="@string/dateofend"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Техника"
-                android:id="@+id/radioButton3"
-                style="@style/RadioButton"/>
+                android:layout_below="@+id/textView2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp">
 
-        </info.hoang8f.android.segmented.SegmentedGroup>
-    </RelativeLayout>
+                <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    segmentedgroup:border_width="2dp"
+                    segmentedgroup:corner_radius="10dp"
+                    segmentedgroup:tint_color="@color/colorPrimary">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_marginTop="5dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/relativeLayout2">
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Продукты" />
 
-        <info.hoang8f.android.segmented.SegmentedGroup
-            xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            segmentedgroup:border_width="2dp"
-            segmentedgroup:corner_radius="10dp"
-            segmentedgroup:tint_color="@color/color_type_of_buildmaterials"
-            android:orientation="horizontal" >
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Стройматериалы" />
 
-            <RadioButton
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Техника" />
+
+                </info.hoang8f.android.segmented.SegmentedGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Не забыть"
-                android:id="@+id/radioButton4"
-                style="@style/RadioButton"/>
+                android:layout_below="@+id/relativeLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp">
 
-            <RadioButton
+                <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    segmentedgroup:border_width="2dp"
+                    segmentedgroup:corner_radius="10dp"
+                    segmentedgroup:tint_color="@color/color_type_of_buildmaterials">
+
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Не забыть" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton5"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Сегодня" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton6"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Важно" />
+
+                </info.hoang8f.android.segmented.SegmentedGroup>
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/etProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayout2"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:hint="Товар"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/holo_red_light" />
+
+            <EditText
+                android:id="@+id/etValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etProduct"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:hint="Количество"
+                android:inputType="numberSigned"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/holo_red_light" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Сегодня"
-                android:id="@+id/radioButton5"
-                style="@style/RadioButton"/>
+                android:layout_below="@+id/etValue"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp">
 
-            <RadioButton
+                <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/unitOfMeasure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    segmentedgroup:border_width="2dp"
+                    segmentedgroup:corner_radius="10dp"
+                    segmentedgroup:tint_color="@color/colorPrimary">
+
+                    <RadioButton
+                        android:id="@+id/radioButton7"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="кг" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton8"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="литр" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton9"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="шт" />
+
+                </info.hoang8f.android.segmented.SegmentedGroup>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnAddFragmentAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/relativeLayout3"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_fragment_add"
+                android:text=" Добавить "
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/black" />
+
+            <Button
+                android:id="@+id/btnClearFragmentAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/relativeLayout3"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_fragment_add"
+                android:text=" Очистить "
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/black" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Важно"
-                android:id="@+id/radioButton6"
-                style="@style/RadioButton"/>
+                android:layout_below="@+id/btnAddFragmentAdd"
+                android:layout_marginTop="5dp">
 
-        </info.hoang8f.android.segmented.SegmentedGroup>
-    </RelativeLayout>
+                <ListView
+                    android:id="@+id/listViewAddFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etProduct"
-        android:layout_below="@+id/relativeLayout2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="Товар"
-        android:layout_marginTop="5dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/holo_red_light"
-        android:background="@drawable/apptheme_edit_text_holo_light"
-        android:singleLine="true" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etValue"
-        android:layout_below="@+id/etProduct"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="Количество"
-        android:inputType="numberSigned"
-        android:textColor="@android:color/black"
-        android:textColorHint="@android:color/holo_red_light"
-        android:background="@drawable/apptheme_edit_text_holo_light"/>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etValue"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:id="@+id/relativeLayout3">
-
-        <info.hoang8f.android.segmented.SegmentedGroup
-            android:id="@+id/unitOfMeasure"
-            xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            segmentedgroup:border_width="2dp"
-            segmentedgroup:corner_radius="10dp"
-            segmentedgroup:tint_color="@color/colorPrimary"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="кг"
-                android:id="@+id/radioButton7"
-                style="@style/RadioButton"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="литр"
-                android:id="@+id/radioButton8"
-                style="@style/RadioButton"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="шт"
-                android:id="@+id/radioButton9"
-                style="@style/RadioButton"/>
-
-        </info.hoang8f.android.segmented.SegmentedGroup>
-    </RelativeLayout>
-
-    <Button
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:text=" Добавить "
-        android:id="@+id/btnAddFragmentAdd"
-        android:layout_below="@+id/relativeLayout3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/button_fragment_add"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/black"/>
-
-    <Button
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:text=" Очистить "
-        android:id="@+id/btnClearFragmentAdd"
-        android:layout_below="@+id/relativeLayout3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/button_fragment_add"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/black"/>
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listViewAddFragment"
-        android:layout_below="@+id/btnAddFragmentAdd"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp" />
-
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
