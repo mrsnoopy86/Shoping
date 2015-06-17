@@ -37,20 +37,21 @@
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical"
+                    android:padding="5dp" >
 
                     <com.nhaarman.listviewanimations.itemmanipulation.DynamicListView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/dynamicListView"
-                        android:dividerHeight="8px"/>
+                        android:id="@+id/dynamicListView" />
 
                 </LinearLayout>
 
                 <RelativeLayout
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:padding="5dp" >
 
                     <TextView
                         android:id="@+id/textViewHint"
@@ -98,7 +99,8 @@
                     android:id="@+id/tab4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
                     <fragment
                         android:name="com.google.android.gms.maps.MapFragment"

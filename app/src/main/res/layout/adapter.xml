@@ -2,16 +2,14 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/adapter_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:padding="2dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -131,12 +129,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/adapter_title"
-        android:layout_marginTop="2dp">
-
+        android:paddingTop="1dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginBottom="1dp">
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="225dp"
+            android:layout_height="wrap_content"
             android:id="@+id/lvOfProduct"/>
 
     </RelativeLayout>

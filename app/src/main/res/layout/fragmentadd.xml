@@ -169,59 +169,61 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="@android:color/holo_red_light" />
 
-            <EditText
-                android:id="@+id/etValue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/etProduct"
-                android:background="@drawable/apptheme_edit_text_holo_light"
-                android:hint="Количество"
-                android:inputType="numberSigned"
-                android:textColor="@android:color/black"
-                android:textColorHint="@android:color/holo_red_light" />
-
-            <RelativeLayout
-                android:id="@+id/relativeLayout3"
+            <TableRow
+                android:id="@+id/row"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/etValue"
-                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/etProduct"
                 android:layout_marginTop="5dp">
 
-                <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/unitOfMeasure"
+                <EditText
+                    android:id="@+id/etValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    segmentedgroup:border_width="2dp"
-                    segmentedgroup:corner_radius="10dp"
-                    segmentedgroup:tint_color="@color/colorPrimary">
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:hint="Количество"
+                    android:inputType="numberSigned"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/holo_red_light" />
 
-                    <RadioButton
-                        android:id="@+id/radioButton7"
-                        style="@style/RadioButton"
+                <RelativeLayout
+                    android:id="@+id/relativeLayout3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/unitOfMeasure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="кг" />
+                        android:orientation="horizontal"
+                        segmentedgroup:border_width="2dp"
+                        segmentedgroup:corner_radius="10dp"
+                        segmentedgroup:tint_color="@color/colorPrimary">
 
-                    <RadioButton
-                        android:id="@+id/radioButton8"
-                        style="@style/RadioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="литр" />
+                        <RadioButton
+                            android:id="@+id/radioButton7"
+                            style="@style/RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="кг" />
 
-                    <RadioButton
-                        android:id="@+id/radioButton9"
-                        style="@style/RadioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="шт" />
+                        <RadioButton
+                            android:id="@+id/radioButton8"
+                            style="@style/RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="литр" />
 
-                </info.hoang8f.android.segmented.SegmentedGroup>
-            </RelativeLayout>
+                        <RadioButton
+                            android:id="@+id/radioButton9"
+                            style="@style/RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="шт" />
+
+                    </info.hoang8f.android.segmented.SegmentedGroup>
+                </RelativeLayout>
+            </TableRow>
 
             <Button
                 android:id="@+id/btnAddFragmentAdd"
@@ -229,7 +231,7 @@
                 android:layout_height="35dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/relativeLayout3"
+                android:layout_below="@+id/row"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/button_fragment_add"
                 android:text=" Добавить "
@@ -242,7 +244,7 @@
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_below="@+id/relativeLayout3"
+                android:layout_below="@+id/row"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/button_fragment_add"
                 android:text=" Очистить "
